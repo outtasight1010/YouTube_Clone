@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication.apps.AuthenticationConfig',
     'corsheaders',
-  # This app is for example use only
-    'tvshows.apps.TvshowsConfig'
+    'cars.apps.CarsConfig'  # This app is for example use only
+    
 ]
 
 MIDDLEWARE = [
