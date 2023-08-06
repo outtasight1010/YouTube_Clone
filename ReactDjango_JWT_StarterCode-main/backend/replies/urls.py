@@ -1,10 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from replies import views
 
+# <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
+
 urlpatterns = [
-    # Endpoint to create a new reply to a comment
-    path('create/', views.create_reply, name='create-reply'),
-    # Endpoint to retrieve all replies for a specific comment
-    path('comment/<int:comment_id>/', views.get_replies_for_comment, name='get-replies-for-comment'),
-    # I may add more endpoints for other reply-related functionality
+    path('', views.user_replies),
+    path('all/', views.get_all_replies),
 ]
+
