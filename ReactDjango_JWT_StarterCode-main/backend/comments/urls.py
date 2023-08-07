@@ -2,7 +2,7 @@ from django.urls import path, include
 from comments import views
 from .views import create_comment
 
-# <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
+
 
 urlpatterns = [
     path('', views.user_comments),
