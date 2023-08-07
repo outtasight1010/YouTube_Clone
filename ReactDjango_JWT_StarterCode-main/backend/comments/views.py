@@ -30,3 +30,12 @@ def user_comments(request):
         comments = Comment.objects.filter(user_id=request.user.id)
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
+    
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def create_comment(request):
+    serializer = CommentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save(user=request.user)  # Assigning the authenticated user to the comment
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
