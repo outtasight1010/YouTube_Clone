@@ -1,5 +1,6 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
+import {useHistory} from 'react-router-dom';
 import "./App.css";
 
 
@@ -12,15 +13,19 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import { YTvideos } from "./components/YTvideos/YTvideos";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+
+
 
 function App() {
   return (
     <div>
       <Navbar />
       <YTvideos/>
+      <SearchBar/>
       <Routes>
         <Route
           path="/"
