@@ -1,5 +1,5 @@
-// SearchPage.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './SearchPage.css'; // Apply your styles here
 import SearchBar from '../SearchBar/SearchBar'; // Import the correct path
 
@@ -9,9 +9,13 @@ const SEARCH_QUERY = 'rockybalboa';
 
 const SearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSearchResults = (results) => {
     setSearchResults(results);
+
+    // Navigate to the search results page
+    navigate('/search-results');
   };
 
   return (
@@ -20,15 +24,7 @@ const SearchPage = () => {
       <div className="search-results">
         {searchResults.map(video => (
           <div key={video.id.videoId} className="video-card">
-            <iframe
-              width="200"
-              height="150"
-              src={`https://www.youtube.com/embed/${video.id.videoId}`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+            {/* Display video */}
           </div>
         ))}
       </div>

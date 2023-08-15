@@ -1,0 +1,16 @@
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 5px;
+    margin-left: 60px;
+   
+  }
+  
+  /* Style each video card */
+  .video-card {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 2px;
+    
+  }
+  
