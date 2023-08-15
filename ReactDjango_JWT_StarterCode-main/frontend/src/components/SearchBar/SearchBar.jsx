@@ -1,31 +1,44 @@
-// SearchBar.js
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import './SearchBar.css';
+import React, { useState } from 'react';
+import axios from 'axios';
 
+const SearchBar = ({ onSearchResults }) => {
+  const [query, setQuery] = useState('');
 
-const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const navigate = useNavigate(); // Get the navigation function
-  
-    const handleSearch = () => {
-      if (searchTerm.trim()) {
-        navigate(`/search/${searchTerm}`); // Use navigate function to navigate
-      }
-    };
-  
-    return (
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Search videos..."
-          value={searchTerm}
-          onChange={e => setSearchTerm(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
-    );
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(
+        `https://www.googleapis.com/youtube/v3/search`,
+        {
+          params: {
+            key: 'AIzaSyA48Og_bmU2yVzGDjrFc5pibu6EmwwJj0Y',
+            q: query,
+            part: 'snippet',
+            maxResults: 5, 
+          },
+        }
+      );
+      const searchResults = response.data.items;
+      onSearchResults(searchResults);
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+    }
   };
-  
-  export default SearchBar;
+
+  return (
+    <div className = 'search-bar'>
+      <input
+        type="text"
+        placeholder="Search for videos..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
+  );
+};
+
+export default SearchBar;
+
   
