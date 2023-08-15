@@ -17,6 +17,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import SearchPage from "./components/SearchPage/SearchPage";
 
 
 
@@ -24,7 +25,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <SearchBar/>
+      <SearchPage/>
       <VideoPage/>
       <Routes>
         <Route
