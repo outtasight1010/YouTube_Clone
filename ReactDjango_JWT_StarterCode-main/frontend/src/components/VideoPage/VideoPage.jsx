@@ -1,5 +1,5 @@
 import react from 'react';
-import './YTvideos.css';
+import './VideoPage.css';
 
 const API = 'AIzaSyA48Og_bmU2yVzGDjrFc5pibu6EmwwJj0Y'
 var fetchurl =`https://www.googleapis.com/youtube/v3/search?key=${API}`
