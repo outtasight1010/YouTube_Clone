@@ -2,7 +2,8 @@
 .search-bar {
     display: flex;
     padding-left: 665px;
-    padding-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
     align-items: center;
   }
   

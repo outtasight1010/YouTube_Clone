@@ -24,8 +24,8 @@ function App() {
   return (
     <div>
       <Navbar />
-      <YTvideos/>
       <SearchBar/>
+      <YTvideos/>
       <Routes>
         <Route
           path="/"
