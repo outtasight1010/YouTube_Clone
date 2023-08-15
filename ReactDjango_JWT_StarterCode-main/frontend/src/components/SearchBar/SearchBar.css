@@ -1,0 +1,29 @@
+/* Assuming you have a class named "search-bar" for the container div */
+.search-bar {
+    display: flex;
+    padding-left: 665px;
+    padding-top: 50px;
+    align-items: center;
+  }
+  
+  /* Style for the input field */
+  .search-bar input {
+    padding: 8px;
+    border: 1px solid #0d0909;
+    border-radius: 5px;
+    font-size: 14px;
+    
+  }
+  
+  /* Style for the search button */
+  .search-bar button {
+    padding: 8px 12px;
+    background-color:red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
