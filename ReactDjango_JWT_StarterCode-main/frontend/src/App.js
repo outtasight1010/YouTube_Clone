@@ -9,6 +9,7 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import HomeVideo from "./pages/HomeVideo/HomeVideo";
+//import VideoPage from "./pages/VideoPage/VideoPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -33,10 +34,11 @@ function App() {
             <HomeVideo/>
           }
         />
+        <Route path= "/search-results" element={<SearchPage/>}/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-      <SearchPage/>
+      
       <Footer />
     </div>
   );

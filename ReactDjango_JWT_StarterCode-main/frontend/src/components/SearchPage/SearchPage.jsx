@@ -1,17 +1,20 @@
 // SearchPage.js
 import React, { useState } from 'react';
-import './SearchPage.css'; // Apply your styles here
-import SearchBar from '../SearchBar/SearchBar'; // Import the correct path
+//import { useNavigate } from 'react-router-dom';
+import './SearchPage.css'; 
+import SearchBar from '../SearchBar/SearchBar'; 
 
 //const API_KEY = 'AIzaSyCOHeaQO_PyIzcGeMyxoRBFw-BVrTBh354'; //my API key
 //const SEARCH_QUERY = 'rockybalboa';
 
 
 const SearchPage = () => {
+  //const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearchResults = (results) => {
     setSearchResults(results);
+    //navigate('/video-page', { state: { searchResults } });
   };
 
   return (
