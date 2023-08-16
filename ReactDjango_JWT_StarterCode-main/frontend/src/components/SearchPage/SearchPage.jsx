@@ -1,4 +1,4 @@
-// SearchPage.js
+
 import React, { useState } from 'react';
 //import { useNavigate } from 'react-router-dom';
 import './SearchPage.css'; 
@@ -9,12 +9,10 @@ import SearchBar from '../SearchBar/SearchBar';
 
 
 const SearchPage = () => {
-  //const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearchResults = (results) => {
     setSearchResults(results);
-    //navigate('/video-page', { state: { searchResults } });
   };
 
   return (

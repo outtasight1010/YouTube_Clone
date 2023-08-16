@@ -1,8 +1,7 @@
-
 import './SearchBar.css';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+
 
 const SearchBar = ({ onSearchResults }) => {
   const [query, setQuery] = useState('');

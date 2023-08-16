@@ -8,5 +8,22 @@
   width: 200px;
   margin-right: 10px;
   margin-bottom: 10px;
-  flex: 0 0 calc(33.33% - 10px); /* Distribute 3 videos per row */
+  padding:5px;
+  
+}
+
+h1 {
+  font-size: 20px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  
+}
+
+h2 {
+  font-size: .75rem;
+
+}
+
+p {
+  font-size: .5rem; 
+  margin-top: 2px; 
 }

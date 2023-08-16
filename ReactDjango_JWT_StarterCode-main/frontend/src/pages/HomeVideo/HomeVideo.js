@@ -46,6 +46,8 @@ const HomeVideo = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
+            <h2>{video.snippet.title}</h2>
+            <p>{video.snippet.description}</p>
           </div>
         ))}
       </div>
