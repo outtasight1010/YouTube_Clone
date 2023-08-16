@@ -1,0 +1,12 @@
+.video-grid {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.video-card {
+  width: 200px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  flex: 0 0 calc(33.33% - 10px); /* Distribute 3 videos per row */
+}
