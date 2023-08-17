@@ -12,7 +12,7 @@ const Navbar = () => {
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>YouTube Clone</b>
+            <b>YouTube 4U</b>
           </Link>
         </li>
         <li>
