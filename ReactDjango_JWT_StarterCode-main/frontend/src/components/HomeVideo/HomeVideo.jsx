@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './HomeVideo.css';
 
 const API_KEY = 'AIzaSyCOHeaQO_PyIzcGeMyxoRBFw-BVrTBh354';
@@ -37,6 +38,8 @@ const HomeVideo = () => {
       <div className="video-grid">
         {videos.map(video => (
           <div key={video.id.videoId} className="video-card">
+            <Link to={`/video/${video.id.videoId}`}></Link>
+            <Link to={`/search/${video.id.videoId}`}></Link>
             <iframe
               width="200"
               height="150"
