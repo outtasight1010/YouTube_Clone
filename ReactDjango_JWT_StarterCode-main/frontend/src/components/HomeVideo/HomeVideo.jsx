@@ -6,6 +6,7 @@ import './HomeVideo.css';
 const API_KEY = 'AIzaSyCOHeaQO_PyIzcGeMyxoRBFw-BVrTBh354';
 const DEFAULT_SEARCH_QUERY = 'rocky balboa';
 
+const videoId = 'D_Vg4uyYwEk'
 const HomeVideo = () => {
   const [videos, setVideos] = useState([]);
 
@@ -47,8 +48,7 @@ const HomeVideo = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
-            <Link to={`/video/${video.id.videoId}`}></Link>
-            <Link to={`/search/${video.id.videoId}`}></Link>
+            <Link to={`/video/${video.id.videoId}`}>Watch video</Link>
             <h2>{video.snippet.title}</h2>
             <p>{video.snippet.description}</p>
           </div>
