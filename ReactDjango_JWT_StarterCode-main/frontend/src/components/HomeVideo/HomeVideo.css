@@ -29,3 +29,9 @@ p {
   font-size: .5rem; 
   margin-top: 2px; 
 }
+
+.link-style {
+  font-size: 10px;
+  color:gray;
+  
+}

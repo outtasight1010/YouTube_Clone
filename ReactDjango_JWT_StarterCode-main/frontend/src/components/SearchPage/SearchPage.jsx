@@ -31,7 +31,7 @@ const SearchPage = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
-            <Link to={`/video/${video.id.videoId}`}></Link>
+            <Link to={`/video/${video.id.videoId}`} className='link-style'>Click here to watch video</Link>
             <h2>{video.snippet.title}</h2>
             <p>{video.snippet.description}</p>
           </div>
