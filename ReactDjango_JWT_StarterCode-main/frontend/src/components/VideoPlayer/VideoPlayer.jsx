@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './VideoPlayer.css';
 import RelatedVideos from '../RelatedVideos/RelatedVideos';
+import CommentList from '../CommentList/CommentList';
 
 
 const VideoPlayer = ({ videos }) => {

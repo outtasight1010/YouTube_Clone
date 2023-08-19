@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import CommentList from '../CommentList/CommentList';
 import './VideoPage.css';
 
 const VideoPage = ({ videos }) => {
@@ -29,6 +30,7 @@ const VideoPage = ({ videos }) => {
         ></iframe>
         <h2>{snippet.title}</h2>
         <p>{snippet.description}</p>
+        <CommentList videoId={videoId} />
       </div>
     </div>
   );
