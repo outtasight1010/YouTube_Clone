@@ -14,7 +14,7 @@ const VideoPlayer = ({ videos }) => {
 
   return (
     <div className="container">
-      <h1>Video Page</h1>
+      <h1>Video Player</h1>
       <div className="video-container">
         <iframe
           width="560"

@@ -18,7 +18,7 @@ import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import RelatedVideos from "./components/RelatedVideos/RelatedVideos";
 import SearchPage from "./components/SearchPage/SearchPage";
-//import VideoPage from "./components/VideoPlayer/VideoPlayer";
+import VideoPage from "./components/VideoPage/VideoPage";
 import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 
 // Util Imports
@@ -64,6 +64,7 @@ function App() {
         <Route path="/" element={<HomeVideo videos = {videos}/>}/>
         <Route path="/video/:videoId" element={<VideoPlayer videos={videos} />}/>
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/video/:videoId" element={<VideoPage videos={videos} />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
