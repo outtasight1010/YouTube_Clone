@@ -1,14 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './VideoPlayer.css';
+import RelatedVideos from '../RelatedVideos/RelatedVideos';
 
-const VideoPlayer = () => {
+const VideoPlayer = ({ videos }) => {
   const { videoId } = useParams(); // Retrieve the video ID from the URL parameter
-  
+  const mainVideo = videos.find(video => video.id === videoId);
+  const selectedVideo = videos.find(video => video.id === videoId);
+  const relatedVideos = videos.filter(video => video.id !== videoId);
 
   return (
     <div className="container">
-      <h1>Video Page</h1>
+      <h1>Video Player</h1>
       <div className="video-container">
         <iframe
           width="560"
@@ -20,6 +23,7 @@ const VideoPlayer = () => {
           allowFullScreen
         ></iframe>
       </div>
+      <RelatedVideos videos={relatedVideos} />
     </div>
   );
 };
