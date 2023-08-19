@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-//import { useNavigate } from 'react-router-dom';
 import './SearchPage.css'; 
 import SearchBar from '../SearchBar/SearchBar'; 
-
-
-//const API_KEY = 'AIzaSyCOHeaQO_PyIzcGeMyxoRBFw-BVrTBh354'; //my API key
-//const SEARCH_QUERY = 'rockybalboa';
 
 
 const SearchPage = () => {
