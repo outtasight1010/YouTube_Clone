@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import './VideoPage.css';
+import './VideoPlayer.css';
 
-const VideoPage = () => {
+const VideoPlayer = () => {
   const { videoId } = useParams(); // Retrieve the video ID from the URL parameter
   
 
@@ -24,4 +24,4 @@ const VideoPage = () => {
   );
 };
 
-export default VideoPage;
+export default VideoPlayer;

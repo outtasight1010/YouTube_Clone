@@ -35,7 +35,7 @@ const HomeVideo = () => {
 
   return (
     <div className="container">
-      <h1>Home Page</h1>
+      <h1>Videos Home</h1>
       <div className="video-grid">
         {videos.map(video => (
           <div key={video.id.videoId} className="video-card">
