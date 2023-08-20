@@ -8,7 +8,7 @@ const CommentList = ({ videoId }) => {
     const fetchComments = async () => {
       try {
         const response = await axios.get(
-            "http://127.0.0.1:8000/api/comments/"
+            "http://127.0.0.1:8000/api/comments/all/"
         );
         setComments(response.data);
       } catch (error) {

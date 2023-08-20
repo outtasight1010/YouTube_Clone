@@ -14,7 +14,7 @@ const CommentForm = ({ videoId, onCommentSubmit }) => {
 
     try {
       const response = await axios.post(
-        'http://your-backend-api-url/api/comments',
+        'http://your-backend-api-url/api/comments/all',
         { text: commentText }
       );
       onCommentSubmit(response.data);

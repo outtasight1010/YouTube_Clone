@@ -7,7 +7,7 @@ import "./App.css";
 
 
 // Pages Imports
-//import HomePage from "./pages/HomePage/HomePage";
+
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import HomeVideo from "./components/HomeVideo/HomeVideo";
@@ -25,6 +25,8 @@ import CommentList from "./components/CommentList/CommentList";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import HomeYT from "./pages/HomeYT/HomeYT";
+import useAuth from './hooks/useAuth';
 
 
 
@@ -33,6 +35,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
     const [videos, setVideos] = useState([]);
+    const [user, token] = useAuth();
   
     useEffect(() => {
       const fetchVideos = async () => {
@@ -63,7 +66,9 @@ function App() {
     <div>
       <Navbar />
       <SearchPage/>
+      
       <Routes>
+      
         <Route path="/" element={<HomeVideo videos = {videos}/>}/>
         <Route path="/video/:videoId" element={<VideoPlayer videos={videos} />}/>
         <Route path="/search" element={<SearchPage />} />

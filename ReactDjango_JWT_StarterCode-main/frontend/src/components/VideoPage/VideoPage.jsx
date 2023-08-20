@@ -1,47 +1,53 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import CommentList from '../CommentList/CommentList';
 import CommentForm from '../CommentForm/CommentForm';
+import axios from 'axios';
 import './VideoPage.css';
 
-const VideoPage = ({ videos }) => {
-  const { videoId } = useParams();
-  const [comments, setComments] = useState([]);
-  const handleCommentSubmit = (newComment) => {
-    setComments((prevComments) => [...prevComments, newComment]);
-  };
 
+const VideoPage = () => {
+    const { videoId } = useParams();
+    const [comments, setComments] = useState([]);
 
-  // Find the selected video from the videos array using videoId
-  const selectedVideo = videos.find(video => video.id.videoId === videoId);
+    useEffect(() => {
+        const fetchComments = async () => {
+            try {
+                const response = await axios.get(`http://127.0.0.1:8000/api/comments/all/`, {
+                    params: {
+                        video_id: videoId,
+                    },
+                });
+                setComments(response.data);
+            } catch (error) {
+                console.error('Error fetching comments:', error);
+            }
+        };
 
-  if (!selectedVideo) {
-    return <div>Video not found</div>;
-  }
+        fetchComments();
+    }, [videoId]);
 
-  const { snippet } = selectedVideo;
-
-  return (
-    <div className="container">
-      <h1>Video Page</h1>
-      <div className="video-container">
-        <iframe
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/${videoId}`}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
-        <h2>{snippet.title}</h2>
-        <p>{snippet.description}</p>
-        <CommentForm videoId={videoId} />
-        <CommentList videoId={videoId} />
-      </div>
-    </div>
-  );
+    return (
+        <div className="container">
+            <h1>Video Page</h1>
+            <div className="video-container">
+                {/* Your video player code */}
+            </div>
+            <div className="comments-container">
+                <h2>Comments</h2>
+                {comments.map(comment => (
+                    <div key={comment.id} className="comment">
+                        <p>{comment.text}</p>
+                        <p>Likes: {comment.likes}</p>
+                        <p>Dislikes: {comment.dislikes}</p>
+                        {/* You can add more information from the comment model as needed */}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 };
 
 export default VideoPage;
+

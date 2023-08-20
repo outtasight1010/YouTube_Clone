@@ -53,8 +53,7 @@ const HomeVideo = () => {
             <Link to={`/video/${video.id.videoId}`} className = 'link-style'>Click here to watch video</Link>
             <h2>{video.snippet.title}</h2>
             <p>{video.snippet.description}</p>
-            <CommentList videoId= {video.id}/>
-            <CommentForm videoId={video.id}/>
+            
           </div>
         ))}
       </div>
