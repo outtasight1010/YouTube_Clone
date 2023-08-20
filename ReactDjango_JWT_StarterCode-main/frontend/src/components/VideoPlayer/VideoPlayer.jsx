@@ -8,9 +8,8 @@ import CommentList from '../CommentList/CommentList';
 
 
 const VideoPlayer = ({ videos }) => {
-  const { videoId } = useParams(); // Retrieve the video ID from the URL parameter
+  const { videoId } = useParams(); 
   const mainVideo = videos.find(video => video.id === videoId);
-  // Filter out the clicked video to get the related video
   const relatedVideos = videos.filter(video => video.id !== videoId);
 
   return (
@@ -27,6 +26,7 @@ const VideoPlayer = ({ videos }) => {
           allowFullScreen
         ></iframe>
       </div>
+      <CommentList videoId={videoId} />
       <RelatedVideos videos={relatedVideos} />
     </div>
   );

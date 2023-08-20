@@ -331,7 +331,78 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "GET all comments (unprotected)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/all",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 20 Aug 2023 18:53:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "984"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"user_id\": 1,\n        \"video_id\": \"P9WnxhLbsE4&list=WL&index=5\",\n        \"text\": \"love it\",\n        \"likes\": 1,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 2,\n        \"video_id\": \"P9WnxhLbsE4&list=WL&index=5\",\n        \"text\": \"it's ok\",\n        \"likes\": 2,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 1,\n        \"video_id\": \"D_Vg4uyYwEk\",\n        \"text\": \"Love this speech!\",\n        \"likes\": 1,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 1,\n        \"video_id\": \"D_Vg4uyYwEk\",\n        \"text\": \"So moving!\",\n        \"likes\": 2,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 1,\n        \"video_id\": \"8tab8fK2_3w\",\n        \"text\": \"Fabulous.\",\n        \"likes\": 4,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 3,\n        \"video_id\": \"8tab8fK2_3w\",\n        \"text\": \"I enjoyed this!\",\n        \"likes\": 4,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 3,\n        \"video_id\": \"TNeIwjhjJrc\",\n        \"text\": \"The music is so motivating!\",\n        \"likes\": 1,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 6,\n        \"video_id\": \"TNeIwjhjJrc\",\n        \"text\": \"I work out to this music!\",\n        \"likes\": 5,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 1,\n        \"video_id\": \"5HksV7ZFuhM\",\n        \"text\": \"Love this film!\",\n        \"likes\": 0,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 3,\n        \"video_id\": \"5HksV7ZFuhM\",\n        \"text\": \"Very inspiring.\",\n        \"likes\": 7,\n        \"dislikes\": 0\n    },\n    {\n        \"user_id\": 1,\n        \"video_id\": \"eMhDQFLwrAA\",\n        \"text\": \"My hometown!\",\n        \"likes\": 5,\n        \"dislikes\": 0\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "GET all comments for user (protected)",

@@ -32,7 +32,7 @@ const VideoPage = () => {
         <div className="container">
             <h1>Video Page</h1>
             <div className="video-container">
-                {/* Your video player code */}
+               
             </div>
             <div className="comments-container">
                 <h2>Comments</h2>
@@ -40,11 +40,13 @@ const VideoPage = () => {
                     <div key={comment.id} className="comment">
                         <p>{comment.text}</p>
                         <p>Likes: {comment.likes}</p>
-                        <p>Dislikes: {comment.dislikes}</p>
-                        {/* You can add more information from the comment model as needed */}
+                        <p>Dislikes: {comment.dislikes}</p>     
                     </div>
+                    
                 ))}
             </div>
+            
+
         </div>
     );
 };
