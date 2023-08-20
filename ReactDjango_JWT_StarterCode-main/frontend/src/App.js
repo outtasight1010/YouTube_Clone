@@ -20,9 +20,12 @@ import RelatedVideos from "./components/RelatedVideos/RelatedVideos";
 import SearchPage from "./components/SearchPage/SearchPage";
 import VideoPage from "./components/VideoPage/VideoPage";
 import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
+import CommentForm from "./components/CommentForm/CommentForm";
+import CommentList from "./components/CommentList/CommentList";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+
 
 
 
@@ -68,6 +71,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
+    
       
       <Footer />
     </div>
