@@ -8,7 +8,8 @@ const CommentList = ({ videoId }) => {
     const fetchComments = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/api/comments/all`, 
+          `http://127.0.0.1:8000/api/comments/all/?video_id=${videoId}`
+          , 
           {
             params: {
               video_id: videoId, 
@@ -28,7 +29,7 @@ const CommentList = ({ videoId }) => {
     <div className="comment-list">
       <h2>Comments</h2>
       {comments.map(comment => (
-        <div key={comment.user_id} className="comment">
+        <div key={comment.id} className="comment">
           <p>{comment.text}</p>
           <p>Likes: {comment.likes}</p>
           <p>Dislikes: {comment.dislikes}</p>
