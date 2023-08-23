@@ -8,15 +8,11 @@ const CommentList = ({ videoId }) => {
     const fetchComments = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/api/comments/all/?video_id=${videoId}`
-          , 
-          {
-            params: {
-              video_id: videoId, 
-            },
-          }
+          `http://127.0.0.1:8000/api/comments/all/`
         );
-        setComments(response.data);
+        // Filtering comments based on the provided videoId
+        const commentsForVideo = response.data.filter(comment => comment.video_id === videoId);
+        setComments(commentsForVideo);
       } catch (error) {
         console.error('Error fetching comments:', error);
       }
@@ -40,3 +36,4 @@ const CommentList = ({ videoId }) => {
 };
 
 export default CommentList;
+

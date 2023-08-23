@@ -9,15 +9,10 @@ from .serializers import CommentSerializer
 # Create your views here.
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def get_comments_for_video(request):
-    video_id = request.query_params.get('video_id', None)
-    
-    if video_id is not None:
-        comments = Comment.objects.filter(video_id=video_id)
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)
-    
-    return Response(status=status.HTTP_400_BAD_REQUEST)
+def get_all_comments(request):
+    comments = Comment.objects.all()
+    serializer = CommentSerializer(comments, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET', 'POST'])
