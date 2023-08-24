@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import './CommentForm.css';
 
-import React, { useState } from 'react';
-import axios from 'axios';
-
 const CommentForm = ({ videoId }) => {
   const [commentText, setCommentText] = useState('');
 

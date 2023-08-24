@@ -5,6 +5,7 @@ import axios from 'axios';
 import './VideoPlayer.css';
 import RelatedVideos from '../RelatedVideos/RelatedVideos';
 import CommentList from '../CommentList/CommentList';
+import CommentForm from '../CommentForm/CommentForm';
 
 
 const VideoPlayer = ({ videos }) => {
@@ -27,6 +28,7 @@ const VideoPlayer = ({ videos }) => {
         ></iframe>
       </div>
       <CommentList videoId={videoId} />
+      <CommentForm videoId={videoId} />
       <RelatedVideos videos={relatedVideos} />
     </div>
   );
