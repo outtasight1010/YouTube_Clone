@@ -1,0 +1,18 @@
+.comment-list {
+   font-weight: bold;
+   
+}
+  
+  .comment {
+    background-color: white;
+    
+  }
+  
+  .comment p {
+    margin: 5px 0;
+  }
+  
+  .comment:hover {
+    background-color: #f9f9f9;
+  }
+  
