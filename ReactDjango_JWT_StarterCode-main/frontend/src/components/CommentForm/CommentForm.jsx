@@ -2,37 +2,39 @@ import React, { useState } from "react";
 import axios from "axios";
 import './CommentForm.css';
 
-const CommentForm = ({ videoId, onCommentSubmit }) => {
-  const [commentText, setCommentText] = useState("");
+import React, { useState } from 'react';
+import axios from 'axios';
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+const CommentForm = ({ videoId }) => {
+  const [commentText, setCommentText] = useState('');
 
-    if (commentText.trim() === "") {
-      return;
-    }
-
+  const handleSubmit = async e => {
+    e.preventDefault();
     try {
       const response = await axios.post(
-        'http://your-backend-api-url/api/comments/all',
-        { text: commentText }
+        'http://127.0.0.1:8000/api/comments/create_comment/',
+        {
+          video_id: videoId,
+          text: commentText,
+        }
       );
-      onCommentSubmit(response.data);
-      setCommentText("");
+      console.log('Comment created:', response.data);
+      // Clearing the comment text after submission
+      setCommentText('');
     } catch (error) {
-      console.error("Error submitting comment:", error);
+      console.error('Error creating comment:', error);
     }
   };
 
   return (
     <div className="comment-form">
-      <h2>Add a Comment</h2>
+      <h2>Leave a Comment</h2>
       <form onSubmit={handleSubmit}>
         <textarea
-          rows="4"
-          placeholder="Write your comment..."
           value={commentText}
-          onChange={(e) => setCommentText(e.target.value)}
+          onChange={e => setCommentText(e.target.value)}
+          rows="4"
+          placeholder="Enter your comment..."
         ></textarea>
         <button type="submit">Submit</button>
       </form>
