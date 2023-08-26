@@ -5,7 +5,7 @@ import axios from 'axios';
 import './VideoPlayer.css';
 import RelatedVideos from '../RelatedVideos/RelatedVideos';
 import CommentList from '../CommentList/CommentList';
-import CommentForm from '../CommentForm/CommentForm';
+import Comment from '../Comments/Comments';
 
 
 const VideoPlayer = ({ videos }) => {
@@ -13,9 +13,31 @@ const VideoPlayer = ({ videos }) => {
   const mainVideo = videos.find(video => video.id === videoId);
   const relatedVideos = videos.filter(video => video.id !== videoId);
   const [entries, setEntries] =useState([])
+  const [comments, setComments] = useState([]);
+  
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get(
+          `http://127.0.0.1:8000/api/comments/all/`
+        );
+        // Filtering comments based on the provided videoId
+        const commentsForVideo = response.data.filter(
+          comment => comment.video_id === videoId
+        );
+        setEntries(commentsForVideo);
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+      }
+    };
+
+    fetchComments();
+  }, [videoId]);
+
+  
   function addNewEntry(entry) {
 
-    let tempEntries = [entry, ...entries];
+    let tempEntries = [entry, ...comments];
 
     setEntries(tempEntries);
   }
@@ -35,7 +57,8 @@ const VideoPlayer = ({ videos }) => {
         ></iframe>
       </div>
       <CommentList videoId={videoId} />
-      <CommentForm addNewEntryProp={addNewEntry} />
+      
+      <Comment videoId={videoId} addNewEntryProp={addNewEntry} />
       <RelatedVideos videos={relatedVideos} />
     </div>
   );

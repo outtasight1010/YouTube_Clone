@@ -8,17 +8,16 @@ const CommentForm = (props) => {
   function handleSubmit(e) {
     e.preventDefault();
     let newEntry = {
-      commentText
-     
+      user_id: 1, // Replace with the appropriate user ID
+      video_id: "5HksV7ZFuhM", // Replace with the appropriate video ID
+      text: commentText,
+      likes: 0,
+      dislikes: 0
     };
-    console.log(newEntry);
-    props.addNewEntryProp(newEntry)
-
-    
-    // we are sending name and post to an API
-    //Clear the form fields after submission
-    
+    props.addNewEntryProp(newEntry);
+    setCommentText(''); // Clear the text area after submission
   }
+  
 
   return (
     <div className="comment-form">

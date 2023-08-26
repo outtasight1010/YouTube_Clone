@@ -30,9 +30,6 @@ import useAuth from './hooks/useAuth';
 
 
 
-
-
-
 function App() {
     const [videos, setVideos] = useState([]);
     const [user, token] = useAuth();
