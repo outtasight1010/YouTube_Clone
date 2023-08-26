@@ -66,11 +66,10 @@ function App() {
       <SearchPage/>
       
       <Routes>
-      
         <Route path="/" element={<HomeVideo videos = {videos}/>}/>
         <Route path="/video/:videoId" element={<VideoPlayer videos={videos} />}/>
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/video/:videoId" element={<VideoPage videos={videos} />} />
+        <Route path="/video-details/:videoId" element={<VideoPage videos={videos} />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
