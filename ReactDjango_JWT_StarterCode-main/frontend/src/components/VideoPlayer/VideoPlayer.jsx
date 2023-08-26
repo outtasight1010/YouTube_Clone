@@ -12,6 +12,13 @@ const VideoPlayer = ({ videos }) => {
   const { videoId } = useParams(); 
   const mainVideo = videos.find(video => video.id === videoId);
   const relatedVideos = videos.filter(video => video.id !== videoId);
+  const [entries, setEntries] =useState([])
+  function addNewEntry(entry) {
+
+    let tempEntries = [entry, ...entries];
+
+    setEntries(tempEntries);
+  }
 
   return (
     <div className="container">
@@ -28,7 +35,7 @@ const VideoPlayer = ({ videos }) => {
         ></iframe>
       </div>
       <CommentList videoId={videoId} />
-      <CommentForm videoId={videoId} />
+      <CommentForm addNewEntryProp={addNewEntry} />
       <RelatedVideos videos={relatedVideos} />
     </div>
   );

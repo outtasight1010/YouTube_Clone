@@ -26,7 +26,7 @@ const CommentList = ({ videoId }) => {
     <div className="comment-list">
       <h2>Comments</h2>
       {comments.map(comment => (
-        <div key={comment.id} className="comment">
+        <div key={comment.users} className="comment">
           <p>{comment.text}</p>
           <p>Likes: {comment.likes}</p>
           <p>Dislikes: {comment.dislikes}</p>

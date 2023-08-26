@@ -2,26 +2,23 @@ import React, { useState } from "react";
 import axios from "axios";
 import './CommentForm.css';
 
-const CommentForm = ({ videoId }) => {
+const CommentForm = (props) => {
   const [commentText, setCommentText] = useState('');
 
-  const handleSubmit = async e => {
+  function handleSubmit(e) {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        'http://127.0.0.1:8000/api/comments/create_comment/',
-        {
-          video_id: videoId,
-          text: commentText,
-        }
-      );
-      console.log('Comment created:', response.data);
-      // Clearing the comment text after submission
-      setCommentText('');
-    } catch (error) {
-      console.error('Error creating comment:', error);
-    }
-  };
+    let newEntry = {
+      commentText
+     
+    };
+    console.log(newEntry);
+    props.addNewEntryProp(newEntry)
+
+    
+    // we are sending name and post to an API
+    //Clear the form fields after submission
+    
+  }
 
   return (
     <div className="comment-form">
@@ -33,7 +30,7 @@ const CommentForm = ({ videoId }) => {
           rows="4"
           placeholder="Enter your comment..."
         ></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit"style={{ width: "60px", height: "30px", font:"small-caption"}}>Submit</button>
       </form>
     </div>
   );
