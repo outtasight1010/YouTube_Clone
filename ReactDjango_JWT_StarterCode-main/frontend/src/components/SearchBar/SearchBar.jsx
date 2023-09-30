@@ -12,7 +12,7 @@ const SearchBar = ({ onSearchResults }) => {
         `https://www.googleapis.com/youtube/v3/search`,
         {
           params: {
-            key: 'AIzaSyCOHeaQO_PyIzcGeMyxoRBFw-BVrTBh354',
+            key: 'AIzaSyA48Og_bmU2yVzGDjrFc5pibu6EmwwJj0Y',
             q: query,
             part: 'snippet',
             maxResults: 5, 

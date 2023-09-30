@@ -5,7 +5,7 @@ import './HomeVideo.css';
 import CommentList from '../CommentList/CommentList';
 import CommentForm from '../CommentForm/CommentForm';
 
-const API_KEY = 'AIzaSyCOHeaQO_PyIzcGeMyxoRBFw-BVrTBh354';
+const API_KEY = 'AIzaSyA48Og_bmU2yVzGDjrFc5pibu6EmwwJj0Y';
 const DEFAULT_SEARCH_QUERY = 'rocky balboa';
 
 const videoId = 'D_Vg4uyYwEk'
@@ -67,4 +67,3 @@ export default HomeVideo;
 
 
 
-//AIzaSyCOHeaQO_PyIzcGeMyxoRBFw-BVrTBh354

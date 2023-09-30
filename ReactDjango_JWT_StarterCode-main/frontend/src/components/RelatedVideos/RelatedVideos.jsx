@@ -1,5 +1,5 @@
 import React from 'react';
-import './RelatedVideos.css'; // Apply your styles here
+import './RelatedVideos.css'; 
 
 const RelatedVideos = ({ videos }) => {
   return (

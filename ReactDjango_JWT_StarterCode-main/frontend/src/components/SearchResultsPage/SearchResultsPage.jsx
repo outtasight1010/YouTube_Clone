@@ -1,23 +1,10 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './SearchPage.css'; 
-import SearchBar from '../SearchBar/SearchBar'; 
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SearchPage = () => {
-  const [searchResults, setSearchResults] = useState([]);
-  const navigate = useNavigate(); // Initialize useNavigate
-
-  const handleSearchResults = (results) => {
-    setSearchResults(results);
-
-    // Use navigate function to navigate to a new route when search results are available
-    navigate('/search-results'); // Define the path you want to navigate to
-  };
-
+const SearchResultsPage = ({ searchResults }) => {
   return (
     <div>
-      <SearchBar onSearchResults={handleSearchResults} />
+      <h1>Search Results</h1>
       <div className="search-results">
         {searchResults.map(video => (
           <div key={video.id.videoId} className="video-card">
@@ -33,6 +20,7 @@ const SearchPage = () => {
             <Link to={`/video/${video.id.videoId}`} className='link-style'>Click here to watch video</Link>
             <h2>{video.snippet.title}</h2>
             <p>{video.snippet.description}</p>
+            
           </div>
         ))}
       </div>
@@ -40,5 +28,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
-
+export default SearchResultsPage;

@@ -1,6 +1,7 @@
 // General Imports
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useState,useEffect } from "react";
+import AuthContext from "./context/AuthContext";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import "./App.css";
@@ -18,6 +19,7 @@ import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import RelatedVideos from "./components/RelatedVideos/RelatedVideos";
 import SearchPage from "./components/SearchPage/SearchPage";
+import SearchBar from "./components/SearchBar/SearchBar";
 import VideoPage from "./components/VideoPage/VideoPage";
 import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 import CommentForm from "./components/CommentForm/CommentForm";
@@ -32,6 +34,7 @@ import useAuth from './hooks/useAuth';
 
 function App() {
     const [videos, setVideos] = useState([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(false); // New state for authentication
     const [user, token] = useAuth();
     
   
@@ -42,7 +45,7 @@ function App() {
             `https://www.googleapis.com/youtube/v3/search`,
             {
               params: {
-                key: 'AIzaSyCOHeaQO_PyIzcGeMyxoRBFw-BVrTBh354',
+                key: 'AIzaSyA48Og_bmU2yVzGDjrFc5pibu6EmwwJj0Y',
                 q: 'rocky balboa',
                 part: 'snippet',
                 maxResults: 5,
@@ -64,17 +67,36 @@ function App() {
     <div>
       <Navbar />
       <SearchPage/>
-      
       <Routes>
-        <Route path="/" element={<HomeVideo videos = {videos}/>}/>
-        <Route path="/video/:videoId" element={<VideoPlayer videos={videos} />}/>
+        {/* Default route for both authenticated and non-authenticated users */}
+        <Route
+          path="/"
+          element={
+            <>
+              <HomeVideo videos={videos} />
+              {/* Render CommentForm if authenticated */}
+              {isAuthenticated && <CommentForm />}
+            </>
+          }
+        />
+        <Route path="/video/:videoId" element={<VideoPlayer videos={videos} />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/video-details/:videoId" element={<VideoPage videos={videos} />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/register"
+          element={isAuthenticated ? <Navigate to="/" /> : <RegisterPage />}
+        />
+        <Route
+          path="/login"
+          element={
+            isAuthenticated ? (
+              <Navigate to="/" /> // Redirect to HomeVideo for logged-in users
+            ) : (
+              <LoginPage setIsAuthenticated={setIsAuthenticated} />
+            )
+          }
+        />
       </Routes>
-    
-      
       <Footer />
     </div>
   );
