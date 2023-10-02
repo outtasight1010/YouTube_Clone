@@ -9,10 +9,10 @@ const Comment = ({ videos, addNewEntryProp }) => {
       e.preventDefault();
       let newEntry = {
         text: commentText,
-        // ... other fields
+       
       };
       addNewEntryProp(newEntry);
-      setCommentText(''); // Clear the text area after submission
+      setCommentText(''); 
     }
 
   return (

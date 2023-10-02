@@ -30,8 +30,8 @@ const CommentList = ({ videoId }) => {
         <div key={comment.id} className="comment">
           <p>{comment.text}</p>
           {/* <p>User: {comment.user.username}</p> */}
-          <p>Likes: {comment.likes}</p>
-          <p>Dislikes: {comment.dislikes}</p>
+          {/*<p>Likes: {comment.likes}</p>*/}
+          {/*<p>Dislikes: {comment.dislikes}</p>*/}
         </div>
       ))}
     </div>

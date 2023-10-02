@@ -19,7 +19,7 @@ const CommentForm = (props) => {
       dislikes: 0
     };
 
-    // Making an API call to submit the new comment to the backend
+    
     axios.post(
       'http://127.0.0.1:8000/api/comments/create/',
       newEntry,
@@ -31,9 +31,9 @@ const CommentForm = (props) => {
       }
     )
     .then(response => {
-      // If the comment is successfully added to the backend, update the frontend
+      
       props.addNewEntryProp(newEntry);
-      setCommentText(''); // Clear the text area after submission
+      setCommentText(''); 
     })
     .catch(error => {
       console.error('Error submitting comment:', error);
