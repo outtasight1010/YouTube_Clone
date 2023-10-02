@@ -15,8 +15,7 @@ const CommentForm = (props) => {
       user_id: user.id,           
       video_id: props.videoId,    
       text: commentText,
-      likes: 0,
-      dislikes: 0
+      
     };
 
     
