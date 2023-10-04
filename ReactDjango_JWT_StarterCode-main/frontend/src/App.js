@@ -68,13 +68,13 @@ function App() {
       <Navbar />
       <SearchPage/>
       <Routes>
-        {/* Default route for both authenticated and non-authenticated users */}
+        {/* Default route */}
         <Route
           path="/"
           element={
             <>
               <HomeVideo videos={videos} />
-              {/* Render CommentForm if authenticated */}
+              {/* CommentForm displays if authenticated */}
               {isAuthenticated && <CommentForm />}
             </>
           }
@@ -90,7 +90,7 @@ function App() {
           path="/login"
           element={
             isAuthenticated ? (
-              <Navigate to="/" /> // Redirect to HomeVideo for logged-in users
+              <Navigate to="/" /> 
             ) : (
               <LoginPage setIsAuthenticated={setIsAuthenticated} />
             )

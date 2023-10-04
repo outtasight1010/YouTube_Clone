@@ -5,6 +5,7 @@ import axios from 'axios';
 import './VideoPlayer.css';
 import RelatedVideos from '../RelatedVideos/RelatedVideos';
 import CommentList from '../CommentList/CommentList';
+import CommentForm from '../CommentForm/CommentForm';
 import Comment from '../Comments/Comments';
 
 
@@ -14,6 +15,10 @@ const VideoPlayer = ({ videos }) => {
   const relatedVideos = videos.filter(video => video.id !== videoId);
   const [entries, setEntries] =useState([])
   const [comments, setComments] = useState([]);
+  // Define the addNewComment function
+  function addNewComment(newComment) {
+    setComments([...comments, newComment]);
+  }
   
   useEffect(() => {
     const fetchComments = async () => {
@@ -57,8 +62,8 @@ const VideoPlayer = ({ videos }) => {
         ></iframe>
       </div>
       <CommentList videoId={videoId} />
-      
-      <Comment videoId={videoId} addNewEntryProp={addNewEntry} />
+      <CommentForm videoId={videoId} addNewComment={addNewEntry} />
+      {/*<Comment videoId={videoId} addNewEntryProp={addNewEntry} />*/}
       <RelatedVideos videos={relatedVideos} />
     </div>
   );

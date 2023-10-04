@@ -9,7 +9,7 @@ import useAuth from '../../hooks/useAuth'; // Import the useAuth hook
 const API_KEY = 'AIzaSyA48Og_bmU2yVzGDjrFc5pibu6EmwwJj0Y';
 const DEFAULT_SEARCH_QUERY = 'rocky balboa';
 
-//const videoId = 'D_Vg4uyYwEk'
+
 const HomeVideo = () => {
   const [videos, setVideos] = useState([]);
   const { isAuthenticated } = useAuth(); // Get the user's authentication status
