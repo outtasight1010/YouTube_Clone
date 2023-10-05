@@ -5,7 +5,7 @@ import CommentList from "../CommentList/CommentList";
 const Comment = ({ videos }) => {
   const [comments, setComments] = useState([]);
 
-  // Function to add a new comment to the comments list
+  //  A function to add a new comment to the comments list
   const addNewEntry = (newEntry) => {
     setComments([...comments, newEntry]);
   };

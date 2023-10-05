@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './HomeVideo.css';
 import CommentList from '../CommentList/CommentList';
 import CommentForm from '../CommentForm/CommentForm';
-import useAuth from '../../hooks/useAuth'; // Import the useAuth hook
+import useAuth from '../../hooks/useAuth'; 
 
 const API_KEY = 'AIzaSyA48Og_bmU2yVzGDjrFc5pibu6EmwwJj0Y';
 const DEFAULT_SEARCH_QUERY = 'rocky balboa';
@@ -12,7 +12,7 @@ const DEFAULT_SEARCH_QUERY = 'rocky balboa';
 
 const HomeVideo = () => {
   const [videos, setVideos] = useState([]);
-  const { isAuthenticated } = useAuth(); // Get the user's authentication status
+  const { isAuthenticated } = useAuth(); 
 
   useEffect(() => {
     const fetchVideos = async () => {
