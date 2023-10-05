@@ -21,11 +21,6 @@ const CommentList = ({ videoId }) => {
     fetchComments();
   }, [videoId]);
   
-  // Function to add a new comment to the comments list
-  const addNewComment = (newComment) => {
-    // Update the comments state with the new comment
-    setComments([...comments, newComment]);
-  };
   
 
   return (
