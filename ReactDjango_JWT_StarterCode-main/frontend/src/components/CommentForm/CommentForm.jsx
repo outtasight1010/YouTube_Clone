@@ -25,6 +25,7 @@ function CommentForm(props) {
         console.log('Comment submitted successfully:', response.data);
         props.addNewComment(response.data); 
         setCommentText('');
+        props.fetchComments();
       })
       .catch(error => {
         console.error('Error submitting comment:', error);
