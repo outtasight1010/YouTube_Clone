@@ -1,49 +1,46 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './VideoPlayer.css';
 import RelatedVideos from '../RelatedVideos/RelatedVideos';
 import CommentList from '../CommentList/CommentList';
 import CommentForm from '../CommentForm/CommentForm';
-import Comment from '../Comments/Comments';
-
 
 const VideoPlayer = ({ videos }) => {
   const { videoId } = useParams(); 
   const mainVideo = videos.find(video => video.id === videoId);
   const relatedVideos = videos.filter(video => video.id !== videoId);
-  const [entries, setEntries] =useState([])
+  const [entries, setEntries] = useState([]);
   const [comments, setComments] = useState([]);
-  // Define the addNewComment function
-  function addNewComment(newComment) {
+
+  
+  const fetchComments = async () => {
+    try {
+      const response = await axios.get(
+        `http://127.0.0.1:8000/api/comments/all/`
+      );
+      
+      const commentsForVideo = response.data.filter(
+        comment => comment.video_id === videoId
+      );
+      setEntries(commentsForVideo);
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+    }
+  };
+
+  
+  const addNewComment = (newComment) => {
     setComments([...comments, newComment]);
-  }
-  
+  };
+
   useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const response = await axios.get(
-          `http://127.0.0.1:8000/api/comments/all/`
-        );
-        // Filtering comments based on the provided videoId
-        const commentsForVideo = response.data.filter(
-          comment => comment.video_id === videoId
-        );
-        setEntries(commentsForVideo);
-      } catch (error) {
-        console.error('Error fetching comments:', error);
-      }
-    };
-
+    
     fetchComments();
-  }, [videoId]);
+  }, [fetchComments]);
 
-  
   function addNewEntry(entry) {
-
     let tempEntries = [entry, ...comments];
-
     setEntries(tempEntries);
   }
 
@@ -62,14 +59,14 @@ const VideoPlayer = ({ videos }) => {
         ></iframe>
       </div>
       <CommentList videoId={videoId} />
-      <CommentForm videoId={videoId} addNewComment={addNewEntry} />
-      {/*<Comment videoId={videoId} addNewEntryProp={addNewEntry} />*/}
+      <CommentForm videoId={videoId} addNewComment={addNewEntry} fetchComments={fetchComments} />
       <RelatedVideos videos={relatedVideos} />
     </div>
   );
 };
 
 export default VideoPlayer;
+
 
 
 
