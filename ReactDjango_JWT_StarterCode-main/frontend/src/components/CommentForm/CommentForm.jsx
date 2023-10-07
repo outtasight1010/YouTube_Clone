@@ -6,8 +6,13 @@ import useAuth from "../../hooks/useAuth";
 function CommentForm(props) {
   const [commentText, setCommentText] = useState('');
   const [user, token] = useAuth();
+  const [comments, setComments] = useState([]); // Local comments state
 
-  function handleSubmit(e) {
+  const addNewComment = (newComment) => {
+    setComments([...comments, newComment]); // Add the new comment to local state
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const newComment = {
@@ -23,14 +28,14 @@ function CommentForm(props) {
       .post('http://127.0.0.1:8000/api/comments/create/', newComment, { headers })
       .then(response => {
         console.log('Comment submitted successfully:', response.data);
-        props.addNewComment(response.data); 
+        addNewComment(response.data); // Update local state with the new comment
         setCommentText('');
-        props.fetchComments();
+        props.fetchComments(); // You can keep this to ensure the server data is updated as well
       })
       .catch(error => {
         console.error('Error submitting comment:', error);
       });
-  }
+  };
 
   return (
     <div className="comment-form">
@@ -44,11 +49,22 @@ function CommentForm(props) {
         ></textarea>
         <button type="submit" style={{ width: "60px", height: "30px", font: "small-caption" }}>Submit</button>
       </form>
+
+      {/* Display new comments immediately */}
+      <div className="new-comments">
+        <h3>New Comments</h3>
+        {comments.map((comment, index) => (
+          <div key={index} className="comment">
+            <p>{comment.text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 export default CommentForm;
+
 
 
 
