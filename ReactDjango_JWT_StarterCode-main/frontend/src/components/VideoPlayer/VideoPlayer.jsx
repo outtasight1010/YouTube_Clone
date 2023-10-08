@@ -59,7 +59,7 @@ const VideoPlayer = ({ videos }) => {
         ></iframe>
       </div>
       <CommentList videoId={videoId} />
-      <CommentForm videoId={videoId} addNewComment={addNewEntry} fetchComments={fetchComments} />
+      <CommentForm videoId={videoId} addNewComment={addNewComment} fetchComments={fetchComments} />
       <RelatedVideos videos={relatedVideos} />
     </div>
   );
