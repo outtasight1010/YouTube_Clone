@@ -11,7 +11,9 @@ const CommentList = ({ videoId, newComments }) => {
       console.log('Fetched comments:', response.data);
       const commentsForVideo = response.data.filter(comment => comment.video_id === videoId);
       console.log('Comments for video:', commentsForVideo);
-      setComments([...newComments, ...commentsForVideo]); 
+
+      
+      setComments([...(newComments || []), ...commentsForVideo]); 
     } catch (error) {
       console.error('Error fetching comments:', error);
     }
@@ -34,6 +36,7 @@ const CommentList = ({ videoId, newComments }) => {
 };
 
 export default CommentList;
+
 
 
 
