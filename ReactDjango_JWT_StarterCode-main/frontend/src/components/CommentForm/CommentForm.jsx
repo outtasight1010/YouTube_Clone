@@ -13,7 +13,6 @@ function CommentForm(props) {
     const newComment = {
       video_id: props.videoId,
       text: commentText,
-      isLocal: true, // Mark the comment as local
     };
 
     const headers = {
@@ -24,8 +23,8 @@ function CommentForm(props) {
       .post('http://127.0.0.1:8000/api/comments/create/', newComment, { headers })
       .then(response => {
         console.log('Comment submitted successfully:', response.data);
+        props.addNewComment(response.data); 
         setCommentText('');
-        props.fetchComments(); // You can keep this to ensure the server data is updated as well
       })
       .catch(error => {
         console.error('Error submitting comment:', error);

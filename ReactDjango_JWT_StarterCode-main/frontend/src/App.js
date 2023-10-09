@@ -34,7 +34,7 @@ import useAuth from './hooks/useAuth';
 
 function App() {
     const [videos, setVideos] = useState([]);
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // New state for authentication
+    const [isAuthenticated, setIsAuthenticated] = useState(false); 
     const [user, token] = useAuth();
     
   
